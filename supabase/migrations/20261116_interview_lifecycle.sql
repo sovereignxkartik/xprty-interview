@@ -7,3 +7,4 @@ alter table public.interview_sessions
 create index if not exists sessions_candidate_attempt_idx
   on public.interview_sessions(candidate_id, candidate_attempted_at)
   where candidate_attempted_at is not null;
+
