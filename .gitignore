@@ -1,0 +1,20 @@
+# Local environment files and deployment secrets
+.env
+.env.local
+server/.env
+client/.env
+!/.env.example
+!server/.env.example
+!client/.env.example
+
+# Dependencies, builds, and local runtime output
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+*.log
+server-runtime.*
+
+# Local tooling and editor state
+.supabase/
+.DS_Store

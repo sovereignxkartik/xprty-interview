@@ -1,0 +1,6 @@
+-- The authoritative Supabase schema is the destructive reset migration:
+-- migrations/20261115_reset_and_secure_interview_platform.sql
+--
+-- Apply it with `supabase db push --linked` after linking the intended project,
+-- or paste that migration into the Supabase SQL Editor. It recreates this
+-- schema from scratch and enables RLS on every application table.
