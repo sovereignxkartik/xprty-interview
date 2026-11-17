@@ -1,11 +1,9 @@
 import { io, Socket } from 'socket.io-client';
 
-/**
- * Browser-visible configuration. Never put server secrets (Jitsi/JaaS key,
- * Supabase service-role key, or JWT secret) in VITE_ variables.
- */
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-const SOCKET_URL = import.meta.env.VITE_WS_URL || 'http://localhost:5000';
+// Keep API and Socket.IO calls same-origin. Development is forwarded by the
+// Vite proxy; production must proxy these paths at the web server/edge.
+const API_BASE_URL = '/api';
+const SOCKET_URL = window.location.origin;
 
 class ApiService {
   private socket: Socket | null = null;
