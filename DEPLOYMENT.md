@@ -42,7 +42,7 @@ npm run dev
 1. Configure environment variables:
    - Copy `server/.env.example` to `server/.env` and replace every `replace-with-...` value.
    - `PORT=5000`
-   - `CLIENT_URL=https://interview.xprty.io` and `CORS_ORIGIN=https://interview.xprty.io`
+   - `CLIENT_URL=https://interview.xprty.io` and `CORS_ORIGIN=https://interview.xprty.io` (without a trailing slash)
    - A unique, random `JWT_SECRET` (do not use the development fallback).
    - `JITSI_DOMAIN=meet.jit.si` for development, or your authenticated JaaS/self-hosted domain in production.
    - `SUPABASE_URL=<Your Supabase Project URL>`

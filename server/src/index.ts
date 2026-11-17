@@ -23,7 +23,9 @@ jitsiService.validateConfiguration();
 
 const allowedOrigins = (process.env.CORS_ORIGIN || process.env.CLIENT_URL || 'http://localhost:5173')
   .split(',')
-  .map((origin) => origin.trim())
+  // Browsers send origins without a trailing slash. Normalize deployment
+  // settings such as https://app.example.com/ before CORS compares them.
+  .map((origin) => origin.trim().replace(/\/+$/, ''))
   .filter(Boolean);
 
 const corsOptions = {

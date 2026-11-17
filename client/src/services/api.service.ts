@@ -1,9 +1,9 @@
 import { io, Socket } from 'socket.io-client';
 
-// Keep API and Socket.IO calls same-origin. Development is forwarded by the
-// Vite proxy; production must proxy these paths at the web server/edge.
-const API_BASE_URL = '/api';
-const SOCKET_URL = window.location.origin;
+// Public endpoint locations are safe to expose. They let a separately deployed
+// browser app reach its API; secrets must remain exclusively on the server.
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
+const SOCKET_URL = (import.meta.env.VITE_WS_URL || 'http://localhost:5000').replace(/\/$/, '');
 
 class ApiService {
   private socket: Socket | null = null;
